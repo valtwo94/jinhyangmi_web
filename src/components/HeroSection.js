@@ -7,14 +7,9 @@ import { BsArrowDownCircle } from "react-icons/bs";
 
 export default function HeroSection() {
   return (
-    <section className="relative h-screen overflow-hidden">
-      {/* Background with parallax effect */}
-      <motion.div 
-        initial={{ scale: 1.2 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 2 }}
-        className="absolute inset-0"
-      >
+    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* 배경 이미지 */}
+      <div className="absolute inset-0 z-0">
         <Image
           src="/hero-bg.jpg"
           alt="진향미 메인 이미지"
@@ -22,127 +17,82 @@ export default function HeroSection() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
-      </motion.div>
-
-      {/* Content */}
-      <div className="relative z-20 h-full container mx-auto px-4">
-        <div className="h-full flex flex-col justify-center max-w-3xl">
-          {/* Subtitle */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-4"
-          >
-            <div className="inline-block">
-              <div className="flex items-center gap-2 text-green-400 mb-2">
-                <span className="w-12 h-[1px] bg-green-400"></span>
-                <span className="text-sm font-medium tracking-wider uppercase">Since 2024</span>
-              </div>
-              <h2 className="text-xl md:text-2xl text-white/90 font-medium">
-                신선한 식자재 유통의 새로운 기준
-              </h2>
-            </div>
-          </motion.div>
-
-          {/* Main Title */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-6"
-          >
-            <h1 className="text-5xl md:text-7xl font-bold text-white">
-              <span className="text-green-400">진향미</span>와 함께<br />
-              건강한 미래를 만듭니다
-            </h1>
-          </motion.div>
-
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-lg md:text-xl text-white/80 mb-12 leading-relaxed max-w-2xl"
-          >
-            최고의 품질과 정성으로 전국의 식당과 마트에<br className="hidden md:block" />
-            신선한 식자재를 공급하는 전문 유통기업입니다
-          </motion.p>
-
-          {/* Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 mb-16"
-          >
-            <motion.a
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              href="/about"
-              className="group flex items-center justify-center gap-2 bg-green-500 text-white px-8 py-4 rounded-lg hover:bg-green-600 transition-all duration-300"
-            >
-              <span className="text-lg font-medium">회사 소개</span>
-              <FaArrowRight className="text-sm transition-transform group-hover:translate-x-1" />
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              href="/products"
-              className="group flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-lg hover:bg-white/20 transition-all duration-300"
-            >
-              <span className="text-lg font-medium">제품 보기</span>
-              <FaArrowRight className="text-sm transition-transform group-hover:translate-x-1" />
-            </motion.a>
-          </motion.div>
-
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="flex gap-12"
-          >
-            <div>
-              <p className="text-green-400 text-3xl font-bold mb-1">150+</p>
-              <p className="text-white/60 text-sm">협력 업체</p>
-            </div>
-            <div>
-              <p className="text-green-400 text-3xl font-bold mb-1">98%</p>
-              <p className="text-white/60 text-sm">고객 만족도</p>
-            </div>
-            <div>
-              <p className="text-green-400 text-3xl font-bold mb-1">24H</p>
-              <p className="text-white/60 text-sm">신속 배송</p>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          animate={{ 
-            y: [0, 10, 0],
-          }}
-          transition={{ 
-            duration: 1.5,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2"
-        >
-          <BsArrowDownCircle className="text-white/60 w-6 h-6" />
-          <p className="text-white/60 text-sm font-medium">스크롤하여 더보기</p>
-        </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/60" />
       </div>
 
-      {/* Decorative Elements */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.15 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-green-500/30 to-transparent"
-      />
+      {/* 컨텐츠 */}
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-3xl mx-auto"
+        >
+          {/* 서브타이틀 */}
+          <div className="flex flex-col sm:flex-row items-center justify-center mb-6 sm:mb-8">
+            <div className="hidden sm:block w-12 sm:w-16 h-0.5 bg-green-400" />
+            <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-0">
+              <span className="text-sm sm:text-base text-green-400 font-semibold tracking-wider uppercase">신선한 식자재</span>
+              <span className="text-sm sm:text-base text-green-400 font-semibold tracking-wider uppercase px-0 sm:px-4">유통의 새로운 기준</span>
+            </div>
+            <div className="hidden sm:block w-12 sm:w-16 h-0.5 bg-green-400" />
+          </div>
+
+          {/* 메인 타이틀 */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 sm:mb-8 leading-tight">
+            <span className="block mb-2">최고의 품질로</span>
+            <span className="block">신뢰를 전달합니다</span>
+          </h1>
+
+          {/* 설명 텍스트 */}
+          <p className="text-base sm:text-lg text-gray-200 mb-8 sm:mb-10 leading-relaxed">
+            엄선된 신선한 식자재를 고객님의 식탁까지
+            <br />
+            안전하게 전달해드립니다
+          </p>
+
+          {/* 버튼 */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+            <button
+              onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
+              className="w-full sm:w-auto px-8 py-4 text-base sm:text-lg font-semibold text-white bg-green-600 rounded-lg hover:bg-green-700 transition-colors duration-300 shadow-lg"
+            >
+              제품 둘러보기
+            </button>
+            <button
+              onClick={() => document.getElementById('distribution')?.scrollIntoView({ behavior: 'smooth' })}
+              className="w-full sm:w-auto px-8 py-4 text-base sm:text-lg font-semibold text-green-400 border-2 border-green-400 rounded-lg hover:bg-green-400 hover:text-white transition-colors duration-300 shadow-lg"
+            >
+              유통망 확인하기
+            </button>
+          </div>
+        </motion.div>
+
+        {/* 스크롤 인디케이터 */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+        >
+          <div className="flex flex-col items-center bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
+            <span className="text-sm text-white font-medium mb-2">스크롤하여 더 보기</span>
+            <motion.div
+              animate={{
+                y: [0, 8, 0],
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                repeatType: "reverse",
+              }}
+              className="w-8 h-8 border-2 border-white rounded-full flex items-center justify-center"
+            >
+              <div className="w-1.5 h-1.5 bg-white rounded-full" />
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 } 

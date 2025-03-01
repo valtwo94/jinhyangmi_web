@@ -45,14 +45,14 @@ export default function Header() {
           scrolled ? 'bg-white/90 backdrop-blur-md shadow-md' : 'bg-transparent'
         }`}
       >
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
             <button 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="flex items-center"
             >
-              <div className={`w-32 h-10 relative ${scrolled ? 'text-gray-800' : 'text-white'}`}>
+              <div className={`w-24 sm:w-32 h-8 sm:h-10 relative ${scrolled ? 'text-gray-800' : 'text-white'}`}>
                 <svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
                   <g id="rice-leaf-logo">
                     <path d="M15 12C19 12 25 15 25 23C25 25 24 28 20 30C16 32 12 31 10 29C8 27 7 24 8 21C9 18 12 16 15 16" 
@@ -116,7 +116,7 @@ export default function Header() {
                 >
                   <IoClose size={24} />
                 </button>
-                <div className="mt-12">
+                <div className="mt-16">
                   <nav className="flex flex-col space-y-4">
                     <MobileNavButton onClick={() => scrollToSection('about')}>
                       회사 소개
@@ -142,7 +142,7 @@ function NavButton({ onClick, children, scrolled }) {
   return (
     <button 
       onClick={onClick}
-      className={`relative group ${scrolled ? 'text-gray-800' : 'text-white'}`}
+      className={`relative text-sm sm:text-base group ${scrolled ? 'text-gray-800' : 'text-white'}`}
     >
       {children}
       <span className="absolute left-0 bottom-0 w-full h-0.5 bg-green-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
@@ -154,7 +154,7 @@ function MobileNavButton({ onClick, children }) {
   return (
     <button 
       onClick={onClick}
-      className="block w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-100 rounded-lg transition"
+      className="block w-full px-4 py-3 text-left text-lg text-gray-800 hover:bg-gray-100 rounded-lg transition"
     >
       {children}
     </button>
