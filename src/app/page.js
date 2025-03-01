@@ -1,101 +1,109 @@
-import Image from "next/image";
+import HeroSection from '../components/HeroSection';
+import ServiceSection from '../components/ServiceSection';
+import ValuesSection from '../components/ValuesSection';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import KoreaMap from '../components/KoreaMap';
+import { MdLocationOn, MdLocalShipping, MdStorefront } from 'react-icons/md';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main>
+        <HeroSection />
+        <div id="about">
+          <ValuesSection />
+        </div>
+        <div id="products">
+          <ServiceSection />
+        </div>
+        <div id="distribution" className="py-32 px-4 bg-gray-50">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="text-green-600 text-sm font-semibold tracking-wider uppercase mb-4 block">Our Network</span>
+              <h2 className="text-4xl font-bold mb-4">유통망</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                전국 각지에 신선한 식자재를 공급하는 진향미의 유통 네트워크를 소개합니다
+              </p>
+            </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+              <KoreaMap />
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="bg-blue-50 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                    <MdLocationOn className="w-8 h-8 text-blue-600" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-4">전국 물류 거점</h3>
+                  <p className="text-gray-600 mb-4">서울, 부산, 대구, 광주에 위치한 물류 센터를 통해 전국 각지로 신속한 배송이 가능합니다</p>
+                  <ul className="text-gray-600 space-y-2">
+                    <li className="flex items-center">
+                      <MdStorefront className="w-5 h-5 mr-2 text-green-600" />
+                      수도권 물류센터
+                    </li>
+                    <li className="flex items-center">
+                      <MdStorefront className="w-5 h-5 mr-2 text-green-600" />
+                      영남권 물류센터
+                    </li>
+                    <li className="flex items-center">
+                      <MdStorefront className="w-5 h-5 mr-2 text-green-600" />
+                      호남권 물류센터
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="bg-green-50 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                    <MdLocalShipping className="w-8 h-8 text-green-600" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-4">배송 시스템</h3>
+                  <p className="text-gray-600 mb-4">첨단 콜드체인 시스템을 통해 식자재의 신선도를 완벽하게 유지합니다</p>
+                  <ul className="text-gray-600 space-y-2">
+                    <li className="flex items-center">
+                      <MdLocalShipping className="w-5 h-5 mr-2 text-green-600" />
+                      냉장/냉동 차량 운영
+                    </li>
+                    <li className="flex items-center">
+                      <MdLocalShipping className="w-5 h-5 mr-2 text-green-600" />
+                      실시간 온도 모니터링
+                    </li>
+                    <li className="flex items-center">
+                      <MdLocalShipping className="w-5 h-5 mr-2 text-green-600" />
+                      GPS 차량 관제 시스템
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 md:col-span-2">
+                  <div className="bg-orange-50 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                    <MdStorefront className="w-8 h-8 text-orange-600" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-4">협력 매장</h3>
+                  <p className="text-gray-600 mb-4">전국의 다양한 매장과 협력하여 안정적인 유통망을 구축하고 있습니다</p>
+                  <ul className="text-gray-600 space-y-2">
+                    <li className="flex items-center">
+                      <MdStorefront className="w-5 h-5 mr-2 text-green-600" />
+                      대형 마트
+                    </li>
+                    <li className="flex items-center">
+                      <MdStorefront className="w-5 h-5 mr-2 text-green-600" />
+                      식당 및 프랜차이즈
+                    </li>
+                    <li className="flex items-center">
+                      <MdStorefront className="w-5 h-5 mr-2 text-green-600" />
+                      전통 시장
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 }
